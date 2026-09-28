@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = 'http://127.0.0.1:5050/api';
+// Use production URL if deployed, otherwise fallback to local backend
+const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5050/api';
 
 export const getStats = () => axios.get(`${API_URL}/stats`);
 export const getExpenses = (params) => axios.get(`${API_URL}/expenses`, { params });
